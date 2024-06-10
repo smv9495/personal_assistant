@@ -1,2 +1,9 @@
 # store environment variable required in the project
 .env
+
+# txt files
+*.txt
+
+# Google Calendar API Credentials
+credentials.json
+token.json
