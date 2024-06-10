@@ -7,3 +7,9 @@
 # Google Calendar API Credentials
 credentials.json
 token.json
+
+# Experiment notebooks
+*.ipynb
+
+# Python Cache files
+*.pyc
