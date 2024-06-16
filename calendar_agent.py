@@ -1,14 +1,16 @@
 from langchain.agents import tool
 from setup_google_calendar import view_events
 from typing import List
-from langchain_core.tools import StructuredTool
+from langchain.tools import BaseTool, StructuredTool, Tool
+from calendar_api import CalendarAPI
 
-@tool
-def view_events_tool() -> List[str]:
-    """
-    List the upcoming events in the calendar
-    """
-    return view_events()
+calendar = CalendarAPI()
+
+view_event_tool = Tool.from_function(
+    func=calendar.view_events,
+    name="View Calendar Events",
+    description="View upcoming events from the calendar"
+)
 
 if __name__ == "__main__":
-    print(view_events_tool.invoke({"input":""}))
+    print(view_event_tool.invoke({"input":"5"}))
